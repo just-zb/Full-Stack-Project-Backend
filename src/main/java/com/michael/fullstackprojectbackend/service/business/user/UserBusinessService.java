@@ -11,4 +11,5 @@ public interface UserBusinessService {
             Integer pageSize,
             Boolean isAsc
     );
+    ResponseEntity<ResultFormat> createUser(String username, String password);
 }

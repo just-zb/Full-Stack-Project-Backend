@@ -7,10 +7,12 @@ import com.michael.fullstackprojectbackend.service.data.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/user")
+@RestController
+@RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserController {
     private final UserBusinessService userBusinessService;
@@ -30,6 +32,7 @@ public class UserController {
     It accepts optional parameters for userId, currentPage, pageSize, and isAsc to
     control the pagination and sorting of the posts.
      */
+    @GetMapping("/posts")
     public ResponseEntity<ResultFormat> getPosts(
             @RequestParam(name="userId", required = false) Long userId,
             @RequestParam(name="currentPage", defaultValue = "1") Integer currentPage,
@@ -37,5 +40,13 @@ public class UserController {
             @RequestParam(name="isAsc", defaultValue = "false") Boolean isAsc
     ){
         return ResultResponse.success(String.valueOf(userId) + currentPage + pageSize + isAsc);
+    }
+
+    @GetMapping("/create")
+    public ResponseEntity<ResultFormat> createUser(
+            @RequestParam(name="username") String username,
+            @RequestParam(name="password") String password
+    ){
+        return userBusinessService.createUser(username, password);
     }
 }
