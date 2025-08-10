@@ -12,10 +12,10 @@ https://github.com/just-zb/Full-Stack-Project-Frontend
 
 ## work hours:
 
-| Date | Hours spent | Work                                        |
-|-----:|------------:|---------------------------------------------|
-| 8.10 |           1 | init commit                                 |
-|      |           1 | add demo controller,service layers for user |
-|      |             |                                             |
-|      |             |                                             |
-|      |             |                                             |
+| Date | Hours spent | Work                                                      |
+|-----:|------------:|-----------------------------------------------------------|
+| 8.10 |           1 | init commit                                               |
+|      |           1 | add demo controller,service layers for user               |
+|      |           1 | connect database,add dto,spring jpa and create user logic |
+|      |             |                                                           |
+|      |             |                                                           |
