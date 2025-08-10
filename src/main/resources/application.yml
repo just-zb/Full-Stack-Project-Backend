@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: full-stack-project-backend
+
+logging:
+  level:
+    root: info
