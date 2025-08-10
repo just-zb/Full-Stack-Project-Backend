@@ -2,6 +2,8 @@ package com.michael.fullstackprojectbackend.controller.user;
 
 import com.michael.fullstackprojectbackend.result.ResultFormat;
 import com.michael.fullstackprojectbackend.result.ResultResponse;
+import com.michael.fullstackprojectbackend.service.business.user.UserBusinessService;
+import com.michael.fullstackprojectbackend.service.data.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("/user")
 @RequiredArgsConstructor
 public class UserController {
+    private final UserBusinessService userBusinessService;
     /*
     getUserInfo is a method to retrieve user information.
     It accepts an optional userId parameter to specify which user's information to retrieve.
@@ -33,6 +36,6 @@ public class UserController {
             @RequestParam(name="pageSize", defaultValue = "10") Integer pageSize,
             @RequestParam(name="isAsc", defaultValue = "false") Boolean isAsc
     ){
-        return ResultResponse.success(null);
+        return ResultResponse.success(String.valueOf(userId) + currentPage + pageSize + isAsc);
     }
 }
