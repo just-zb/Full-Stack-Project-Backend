@@ -1,7 +1,6 @@
 package com.michael.fullstackprojectbackend.entity.user;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
 @Table(name = "user")
