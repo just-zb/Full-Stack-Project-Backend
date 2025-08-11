@@ -63,26 +63,32 @@ public class UserServiceImpl implements UserService {
     public boolean updateUsername(Long id, String username) {
         // two strategies: 1. find and update 2. use a custom update method
         // use the second strategy for simplicity
-        return false;
+        return userRepository.updateUsernameById(id, username)>0;
     }
 
     @Override
     public boolean updatePassword(Long id, String password) {
-        return false;
+        return userRepository.updatePasswordById(id, password)>0;
     }
 
     @Override
     public boolean updateEmail(Long id, String email) {
-        return false;
+        return userRepository.updateEmailById(id, email)>0;
     }
 
     @Override
     public Date getLastUsernameUpdateTime(Long id) {
-        return null;
+        User user = userRepository.findById(id).orElse(null);
+        // TODO throw exception if user is null
+        // For now, just return null
+        return user != null ? user.getLastUsernameUpdateTime() : null;
     }
 
     @Override
     public Date getLastEmailUpdateTime(Long id) {
-        return null;
+        User user = userRepository.findById(id).orElse(null);
+        // TODO throw exception if user is null
+        // For now, just return null
+        return user != null ? user.getLastEmailUpdateTime() : null;
     }
 }
