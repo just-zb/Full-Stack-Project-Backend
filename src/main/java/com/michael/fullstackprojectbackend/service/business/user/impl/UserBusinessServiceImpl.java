@@ -23,8 +23,18 @@ public class UserBusinessServiceImpl implements UserBusinessService {
     }
 
     @Override
+    public ResponseEntity<ResultFormat> getCommentsByUserId(Integer currentPage, Integer pageSize, Boolean isAsc) {
+        return null;
+    }
+
+    @Override
     public ResponseEntity<ResultFormat> createUser(String username, String password) {
         userService.saveUser(username, password);
         return ResponseEntity.ok(ResultFormat.success(String.format("User %s created successfully", username)));
+    }
+
+    @Override
+    public ResponseEntity<ResultFormat> logout(String deviceId) {
+        return null;
     }
 }

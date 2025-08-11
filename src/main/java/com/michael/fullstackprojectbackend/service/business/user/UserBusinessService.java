@@ -5,11 +5,21 @@ import org.springframework.http.ResponseEntity;
 
 public interface UserBusinessService {
     ResponseEntity<ResultFormat> getUserInfo(Long userId);
+
     ResponseEntity<ResultFormat> getPostsByUserId(
             Long userId,
             Integer currentPage,
             Integer pageSize,
             Boolean isAsc
     );
+
+    ResponseEntity<ResultFormat> getCommentsByUserId(
+            Integer currentPage,
+            Integer pageSize,
+            Boolean isAsc);
+
     ResponseEntity<ResultFormat> createUser(String username, String password);
+
+    ResponseEntity<ResultFormat> logout(String deviceId);
+
 }
