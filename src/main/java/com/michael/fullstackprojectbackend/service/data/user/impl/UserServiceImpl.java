@@ -1,6 +1,8 @@
 package com.michael.fullstackprojectbackend.service.data.user.impl;
 
 import com.michael.fullstackprojectbackend.entity.user.User;
+import com.michael.fullstackprojectbackend.enums.ResultCodeEnum;
+import com.michael.fullstackprojectbackend.exception.BusinessException;
 import com.michael.fullstackprojectbackend.repository.user.UserRepository;
 import com.michael.fullstackprojectbackend.service.data.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -79,16 +81,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public Date getLastUsernameUpdateTime(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        // TODO throw exception if user is null
-        // For now, just return null
-        return user != null ? user.getLastUsernameUpdateTime() : null;
+        if( user == null ){
+            throw new BusinessException(ResultCodeEnum.USER_NOT_FOUND);
+        }
+        return user.getLastUsernameUpdateTime();
     }
 
     @Override
     public Date getLastEmailUpdateTime(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        // TODO throw exception if user is null
-        // For now, just return null
-        return user != null ? user.getLastEmailUpdateTime() : null;
+        if( user == null ){
+            throw new BusinessException(ResultCodeEnum.USER_NOT_FOUND);
+        }
+        return user.getLastEmailUpdateTime();
     }
 }
