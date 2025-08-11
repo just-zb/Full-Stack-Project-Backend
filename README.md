@@ -17,5 +17,5 @@ https://github.com/just-zb/Full-Stack-Project-Frontend
 | 8.10 |           1 | init commit                                               |
 |      |           1 | add demo controller,service layers for user               |
 |      |           1 | connect database,add dto,spring jpa and create user logic |
-| 8.11 |           1 | add user functions,test code                              |
+| 8.11 |           1 | add userService methods implementations                   |
 |      |             |                                                           |
