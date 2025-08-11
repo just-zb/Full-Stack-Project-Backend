@@ -6,6 +6,8 @@ import com.michael.fullstackprojectbackend.service.data.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -13,7 +15,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Long getUserCount() {
-        return 0L;
+        return userRepository.count();
     }
 
     @Override
@@ -22,5 +24,25 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         user.setPassword(password);
         userRepository.save(user);
+    }
+
+    @Override
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId).isPresent() ? userRepository.findById(userId).get() : null;
+    }
+
+    @Override
+    public List<User> getUsersByIds(List<Long> ids) {
+        return userRepository.findAllById(ids);
+    }
+
+    @Override
+    public User getUserByName(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }
