@@ -6,6 +6,7 @@ import com.michael.fullstackprojectbackend.service.data.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,5 +45,44 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean updateUser(User user) {
+        userRepository.save(user);
+        return true;
+    }
+
+    @Override
+    public boolean addUser(User user) {
+        userRepository.save(user);
+        return true;
+    }
+
+    @Override
+    public boolean updateUsername(Long id, String username) {
+        // two strategies: 1. find and update 2. use a custom update method
+        // use the second strategy for simplicity
+        return false;
+    }
+
+    @Override
+    public boolean updatePassword(Long id, String password) {
+        return false;
+    }
+
+    @Override
+    public boolean updateEmail(Long id, String email) {
+        return false;
+    }
+
+    @Override
+    public Date getLastUsernameUpdateTime(Long id) {
+        return null;
+    }
+
+    @Override
+    public Date getLastEmailUpdateTime(Long id) {
+        return null;
     }
 }
