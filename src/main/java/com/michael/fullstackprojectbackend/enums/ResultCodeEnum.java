@@ -7,7 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResultCodeEnum {
     SUCCESS(20000, "Success"),
-    BUSINESS_EXCEPTION(40000, "Business Error Unknown");
+
+    BUSINESS_EXCEPTION(40000, "Business Error Unknown"),
+
+    SYSTEM_EXCEPTION(50000, "System Exception");
 
     private final int code;
     private final String message;
