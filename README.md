@@ -20,3 +20,4 @@ https://github.com/just-zb/Full-Stack-Project-Frontend
 | 8.11 |           1 | add userService methods implementations                   |
 |      |           1 | add exception handler for project                         |
 | 8.12 |           1 | add some service layer components to help userService.    |
+|      |           1 | add aspect, jwt demo                                      |

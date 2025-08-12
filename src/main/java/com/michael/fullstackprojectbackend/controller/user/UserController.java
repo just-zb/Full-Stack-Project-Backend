@@ -42,11 +42,4 @@ public class UserController {
         return ResultResponse.success(String.valueOf(userId) + currentPage + pageSize + isAsc);
     }
 
-    @GetMapping("/create")
-    public ResponseEntity<ResultFormat> createUser(
-            @RequestParam(name="username") String username,
-            @RequestParam(name="password") String password
-    ){
-        return userBusinessService.createUser(username, password);
-    }
 }
