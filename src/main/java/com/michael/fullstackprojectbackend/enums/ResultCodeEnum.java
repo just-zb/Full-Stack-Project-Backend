@@ -12,7 +12,9 @@ public enum ResultCodeEnum {
 
     SYSTEM_EXCEPTION(50000, "System Exception"),
 
-    USER_NOT_FOUND(40003, "User not found");
+    USER_NOT_FOUND(40003, "User not found"),
+
+    REDIS_SAVING_ERROR(40032, "Redis saving error");
 
     private final int code;
     private final String message;
