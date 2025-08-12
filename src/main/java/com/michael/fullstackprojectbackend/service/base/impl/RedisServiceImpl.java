@@ -4,19 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.michael.fullstackprojectbackend.enums.ResultCodeEnum;
 import com.michael.fullstackprojectbackend.exception.BusinessException;
 import com.michael.fullstackprojectbackend.service.base.RedisService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
+
 @Service
+@RequiredArgsConstructor
 public class RedisServiceImpl implements RedisService {
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
-    @Autowired
-    ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
     @Override
     public void set(String key, String value) {

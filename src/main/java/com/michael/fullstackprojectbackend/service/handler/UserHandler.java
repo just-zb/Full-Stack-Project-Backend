@@ -30,4 +30,10 @@ public class UserHandler {
         redisService.setObjectTemporarilyByMinutes(key, user, 3);
         return user;
     }
+
+    public void updateUserCache(Long userId) {
+        User user = userService.getUserById(userId);
+        String key = RedisKeyConstants.buildUserCacheKey(userId);
+        redisService.setObjectTemporarilyByMinutes(key, user, 3);
+    }
 }
